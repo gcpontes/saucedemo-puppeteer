@@ -1,0 +1,358 @@
+[
+  {
+    "username": "Accepted usernames are:",
+    "status": "failed",
+    "message": "Epic sadface: Username and password do not match any user in this service",
+    "mostExpensiveListProduct": null,
+    "mostExpensiveDetailProduct": null,
+    "productComparison": []
+  },
+  {
+    "username": "standard_user",
+    "status": "success",
+    "message": "Login realizado com sucesso ou nenhum erro encontrado.",
+    "mostExpensiveListProduct": {
+      "name": "Sauce Labs Fleece Jacket",
+      "price": 49.99,
+      "selector": "#item_5_title_link"
+    },
+    "mostExpensiveDetailProduct": {
+      "name": "Sauce Labs Backpack",
+      "price": 29.99
+    },
+    "productComparison": [
+      {
+        "productNameList": "Sauce Labs Backpack",
+        "productPriceList": "$29.99",
+        "productNameDetailPage": "Sauce Labs Backpack",
+        "productPriceDetailPage": "$29.99",
+        "nameMatch": true,
+        "priceMatch": true
+      },
+      {
+        "productNameList": "Sauce Labs Bike Light",
+        "productPriceList": "$9.99",
+        "productNameDetailPage": "Sauce Labs Bike Light",
+        "productPriceDetailPage": "$9.99",
+        "nameMatch": true,
+        "priceMatch": true
+      },
+      {
+        "productNameList": "Sauce Labs Bolt T-Shirt",
+        "productPriceList": "$15.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Sauce Labs Fleece Jacket",
+        "productPriceList": "$49.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Sauce Labs Onesie",
+        "productPriceList": "$7.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Test.allTheThings() T-Shirt (Red)",
+        "productPriceList": "$15.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      }
+    ]
+  },
+  {
+    "username": "locked_out_user",
+    "status": "failed",
+    "message": "Epic sadface: Sorry, this user has been locked out.",
+    "mostExpensiveListProduct": null,
+    "mostExpensiveDetailProduct": null,
+    "productComparison": []
+  },
+  {
+    "username": "problem_user",
+    "status": "success",
+    "message": "Login realizado com sucesso ou nenhum erro encontrado.",
+    "mostExpensiveListProduct": {
+      "name": "Sauce Labs Fleece Jacket",
+      "price": 49.99,
+      "selector": "#item_5_title_link"
+    },
+    "mostExpensiveDetailProduct": {
+      "name": "Sauce Labs Fleece Jacket",
+      "price": 49.99
+    },
+    "productComparison": [
+      {
+        "productNameList": "Sauce Labs Backpack",
+        "productPriceList": "$29.99",
+        "productNameDetailPage": "Sauce Labs Fleece Jacket",
+        "productPriceDetailPage": "$49.99",
+        "nameMatch": false,
+        "priceMatch": false
+      },
+      {
+        "productNameList": "Sauce Labs Bike Light",
+        "productPriceList": "$9.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Sauce Labs Bolt T-Shirt",
+        "productPriceList": "$15.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Sauce Labs Fleece Jacket",
+        "productPriceList": "$49.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Sauce Labs Onesie",
+        "productPriceList": "$7.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Test.allTheThings() T-Shirt (Red)",
+        "productPriceList": "$15.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      }
+    ]
+  },
+  {
+    "username": "performance_glitch_user",
+    "status": "success",
+    "message": "Login realizado com sucesso ou nenhum erro encontrado.",
+    "mostExpensiveListProduct": {
+      "name": "Sauce Labs Fleece Jacket",
+      "price": 49.99,
+      "selector": "#item_5_title_link"
+    },
+    "mostExpensiveDetailProduct": {
+      "name": "Sauce Labs Backpack",
+      "price": 29.99
+    },
+    "productComparison": [
+      {
+        "productNameList": "Sauce Labs Backpack",
+        "productPriceList": "$29.99",
+        "productNameDetailPage": "Sauce Labs Backpack",
+        "productPriceDetailPage": "$29.99",
+        "nameMatch": true,
+        "priceMatch": true
+      },
+      {
+        "productNameList": "Sauce Labs Bike Light",
+        "productPriceList": "$9.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Sauce Labs Bolt T-Shirt",
+        "productPriceList": "$15.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Sauce Labs Fleece Jacket",
+        "productPriceList": "$49.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Sauce Labs Onesie",
+        "productPriceList": "$7.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Test.allTheThings() T-Shirt (Red)",
+        "productPriceList": "$15.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      }
+    ]
+  },
+  {
+    "username": "error_user",
+    "status": "success",
+    "message": "Login realizado com sucesso ou nenhum erro encontrado.",
+    "mostExpensiveListProduct": {
+      "name": "Sauce Labs Fleece Jacket",
+      "price": 49.99,
+      "selector": "#item_5_title_link"
+    },
+    "mostExpensiveDetailProduct": {
+      "name": "Sauce Labs Backpack",
+      "price": 29.99
+    },
+    "productComparison": [
+      {
+        "productNameList": "Sauce Labs Backpack",
+        "productPriceList": "$29.99",
+        "productNameDetailPage": "Sauce Labs Backpack",
+        "productPriceDetailPage": "$29.99",
+        "nameMatch": true,
+        "priceMatch": true
+      },
+      {
+        "productNameList": "Sauce Labs Bike Light",
+        "productPriceList": "$9.99",
+        "productNameDetailPage": "Sauce Labs Bike Light",
+        "productPriceDetailPage": "$9.99",
+        "nameMatch": true,
+        "priceMatch": true
+      },
+      {
+        "productNameList": "Sauce Labs Bolt T-Shirt",
+        "productPriceList": "$15.99",
+        "productNameDetailPage": "Sauce Labs Bolt T-Shirt",
+        "productPriceDetailPage": "$15.99",
+        "nameMatch": true,
+        "priceMatch": true
+      },
+      {
+        "productNameList": "Sauce Labs Fleece Jacket",
+        "productPriceList": "$49.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Sauce Labs Onesie",
+        "productPriceList": "$7.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Test.allTheThings() T-Shirt (Red)",
+        "productPriceList": "$15.99",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      }
+    ]
+  },
+  {
+    "username": "visual_user",
+    "status": "success",
+    "message": "Login realizado com sucesso ou nenhum erro encontrado.",
+    "mostExpensiveListProduct": {
+      "name": "Sauce Labs Bolt T-Shirt",
+      "price": 93.04,
+      "selector": "#item_1_title_link"
+    },
+    "mostExpensiveDetailProduct": null,
+    "productComparison": [
+      {
+        "productNameList": "Sauce Labs Backpack",
+        "productPriceList": "$37.94",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Sauce Labs Bike Light",
+        "productPriceList": "$8.27",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Sauce Labs Bolt T-Shirt",
+        "productPriceList": "$93.04",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Sauce Labs Fleece Jacket",
+        "productPriceList": "$90.04",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Sauce Labs Onesie",
+        "productPriceList": "$80.88",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      },
+      {
+        "productNameList": "Test.allTheThings() T-Shirt (Red)",
+        "productPriceList": "$69.07",
+        "productNameDetailPage": null,
+        "productPriceDetailPage": null,
+        "nameMatch": false,
+        "priceMatch": false,
+        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+      }
+    ]
+  }
+]
