@@ -1,357 +1,332 @@
 [
   {
-    "username": "Accepted usernames are:",
+    "usuario": "Accepted usernames are:",
     "status": "failed",
-    "message": "Epic sadface: Username and password do not match any user in this service",
-    "mostExpensiveListProduct": null,
-    "mostExpensiveDetailProduct": null,
-    "productComparison": []
+    "mensagem": "Epic sadface: Username and password do not match any user in this service",
+    "produtoMaisCaroLista": null,
+    "produtoMaisCaroDetalhe": null,
+    "comparacaoProdutos": []
   },
   {
-    "username": "standard_user",
+    "usuario": "standard_user",
     "status": "success",
-    "message": "Login realizado com sucesso ou nenhum erro encontrado.",
-    "mostExpensiveListProduct": {
-      "name": "Sauce Labs Fleece Jacket",
-      "price": 49.99,
-      "selector": "#item_5_title_link"
+    "mensagem": "Login realizado com sucesso ou nenhum erro encontrado.",
+    "produtoMaisCaroLista": {
+      "nome": "Sauce Labs Fleece Jacket",
+      "preco": 49.99
     },
-    "mostExpensiveDetailProduct": {
-      "name": "Sauce Labs Backpack",
-      "price": 29.99
+    "produtoMaisCaroDetalhe": {
+      "nome": "Sauce Labs Fleece Jacket",
+      "preco": 49.99
     },
-    "productComparison": [
+    "comparacaoProdutos": [
       {
-        "productNameList": "Sauce Labs Backpack",
-        "productPriceList": "$29.99",
-        "productNameDetailPage": "Sauce Labs Backpack",
-        "productPriceDetailPage": "$29.99",
-        "nameMatch": true,
-        "priceMatch": true
+        "nomeProdutoLista": "Sauce Labs Backpack",
+        "precoProdutoLista": "$29.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Backpack",
+        "precoProdutopageDetalhe": "$29.99",
+        "nomeIgual": true,
+        "precoIgual": true
       },
       {
-        "productNameList": "Sauce Labs Bike Light",
-        "productPriceList": "$9.99",
-        "productNameDetailPage": "Sauce Labs Bike Light",
-        "productPriceDetailPage": "$9.99",
-        "nameMatch": true,
-        "priceMatch": true
+        "nomeProdutoLista": "Sauce Labs Bike Light",
+        "precoProdutoLista": "$9.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Bike Light",
+        "precoProdutopageDetalhe": "$9.99",
+        "nomeIgual": true,
+        "precoIgual": true
       },
       {
-        "productNameList": "Sauce Labs Bolt T-Shirt",
-        "productPriceList": "$15.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Bolt T-Shirt",
+        "precoProdutoLista": "$15.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Bolt T-Shirt",
+        "precoProdutopageDetalhe": "$15.99",
+        "nomeIgual": true,
+        "precoIgual": true
       },
       {
-        "productNameList": "Sauce Labs Fleece Jacket",
-        "productPriceList": "$49.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Fleece Jacket",
+        "precoProdutoLista": "$49.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Fleece Jacket",
+        "precoProdutopageDetalhe": "$49.99",
+        "nomeIgual": true,
+        "precoIgual": true
       },
       {
-        "productNameList": "Sauce Labs Onesie",
-        "productPriceList": "$7.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Onesie",
+        "precoProdutoLista": "$7.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Onesie",
+        "precoProdutopageDetalhe": "$7.99",
+        "nomeIgual": true,
+        "precoIgual": true
       },
       {
-        "productNameList": "Test.allTheThings() T-Shirt (Red)",
-        "productPriceList": "$15.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Test.allTheThings() T-Shirt (Red)",
+        "precoProdutoLista": "$15.99",
+        "nomeProdutopageDetalhe": "Test.allTheThings() T-Shirt (Red)",
+        "precoProdutopageDetalhe": "$15.99",
+        "nomeIgual": true,
+        "precoIgual": true
       }
     ]
   },
   {
-    "username": "locked_out_user",
+    "usuario": "locked_out_user",
     "status": "failed",
-    "message": "Epic sadface: Sorry, this user has been locked out.",
-    "mostExpensiveListProduct": null,
-    "mostExpensiveDetailProduct": null,
-    "productComparison": []
+    "mensagem": "Epic sadface: Sorry, this user has been locked out.",
+    "produtoMaisCaroLista": null,
+    "produtoMaisCaroDetalhe": null,
+    "comparacaoProdutos": []
   },
   {
-    "username": "problem_user",
+    "usuario": "problem_user",
     "status": "success",
-    "message": "Login realizado com sucesso ou nenhum erro encontrado.",
-    "mostExpensiveListProduct": {
-      "name": "Sauce Labs Fleece Jacket",
-      "price": 49.99,
-      "selector": "#item_5_title_link"
+    "mensagem": "Login realizado com sucesso ou nenhum erro encontrado.",
+    "produtoMaisCaroLista": {
+      "nome": "Sauce Labs Fleece Jacket",
+      "preco": 49.99
     },
-    "mostExpensiveDetailProduct": {
-      "name": "Sauce Labs Fleece Jacket",
-      "price": 49.99
+    "produtoMaisCaroDetalhe": {
+      "nome": "Sauce Labs Fleece Jacket",
+      "preco": 49.99
     },
-    "productComparison": [
+    "comparacaoProdutos": [
       {
-        "productNameList": "Sauce Labs Backpack",
-        "productPriceList": "$29.99",
-        "productNameDetailPage": "Sauce Labs Fleece Jacket",
-        "productPriceDetailPage": "$49.99",
-        "nameMatch": false,
-        "priceMatch": false
+        "nomeProdutoLista": "Sauce Labs Backpack",
+        "precoProdutoLista": "$29.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Fleece Jacket",
+        "precoProdutopageDetalhe": "$49.99",
+        "nomeIgual": false,
+        "precoIgual": false
       },
       {
-        "productNameList": "Sauce Labs Bike Light",
-        "productPriceList": "$9.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Bike Light",
+        "precoProdutoLista": "$9.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Bolt T-Shirt",
+        "precoProdutopageDetalhe": "$15.99",
+        "nomeIgual": false,
+        "precoIgual": false
       },
       {
-        "productNameList": "Sauce Labs Bolt T-Shirt",
-        "productPriceList": "$15.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Bolt T-Shirt",
+        "precoProdutoLista": "$15.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Onesie",
+        "precoProdutopageDetalhe": "$7.99",
+        "nomeIgual": false,
+        "precoIgual": false
       },
       {
-        "productNameList": "Sauce Labs Fleece Jacket",
-        "productPriceList": "$49.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Fleece Jacket",
+        "precoProdutoLista": "$49.99",
+        "nomeProdutopageDetalhe": "ITEM NOT FOUND",
+        "precoProdutopageDetalhe": "$√-1",
+        "nomeIgual": false,
+        "precoIgual": false
       },
       {
-        "productNameList": "Sauce Labs Onesie",
-        "productPriceList": "$7.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Onesie",
+        "precoProdutoLista": "$7.99",
+        "nomeProdutopageDetalhe": "Test.allTheThings() T-Shirt (Red)",
+        "precoProdutopageDetalhe": "$15.99",
+        "nomeIgual": false,
+        "precoIgual": false
       },
       {
-        "productNameList": "Test.allTheThings() T-Shirt (Red)",
-        "productPriceList": "$15.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Test.allTheThings() T-Shirt (Red)",
+        "precoProdutoLista": "$15.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Backpack",
+        "precoProdutopageDetalhe": "$29.99",
+        "nomeIgual": false,
+        "precoIgual": false
       }
     ]
   },
   {
-    "username": "performance_glitch_user",
+    "usuario": "performance_glitch_user",
     "status": "success",
-    "message": "Login realizado com sucesso ou nenhum erro encontrado.",
-    "mostExpensiveListProduct": {
-      "name": "Sauce Labs Fleece Jacket",
-      "price": 49.99,
-      "selector": "#item_5_title_link"
+    "mensagem": "Login realizado com sucesso ou nenhum erro encontrado.",
+    "produtoMaisCaroLista": {
+      "nome": "Sauce Labs Fleece Jacket",
+      "preco": 49.99
     },
-    "mostExpensiveDetailProduct": {
-      "name": "Sauce Labs Backpack",
-      "price": 29.99
+    "produtoMaisCaroDetalhe": {
+      "nome": "Sauce Labs Fleece Jacket",
+      "preco": 49.99
     },
-    "productComparison": [
+    "comparacaoProdutos": [
       {
-        "productNameList": "Sauce Labs Backpack",
-        "productPriceList": "$29.99",
-        "productNameDetailPage": "Sauce Labs Backpack",
-        "productPriceDetailPage": "$29.99",
-        "nameMatch": true,
-        "priceMatch": true
+        "nomeProdutoLista": "Sauce Labs Backpack",
+        "precoProdutoLista": "$29.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Backpack",
+        "precoProdutopageDetalhe": "$29.99",
+        "nomeIgual": true,
+        "precoIgual": true
       },
       {
-        "productNameList": "Sauce Labs Bike Light",
-        "productPriceList": "$9.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Bike Light",
+        "precoProdutoLista": "$9.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Bike Light",
+        "precoProdutopageDetalhe": "$9.99",
+        "nomeIgual": true,
+        "precoIgual": true
       },
       {
-        "productNameList": "Sauce Labs Bolt T-Shirt",
-        "productPriceList": "$15.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Bolt T-Shirt",
+        "precoProdutoLista": "$15.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Bolt T-Shirt",
+        "precoProdutopageDetalhe": "$15.99",
+        "nomeIgual": true,
+        "precoIgual": true
       },
       {
-        "productNameList": "Sauce Labs Fleece Jacket",
-        "productPriceList": "$49.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Fleece Jacket",
+        "precoProdutoLista": "$49.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Fleece Jacket",
+        "precoProdutopageDetalhe": "$49.99",
+        "nomeIgual": true,
+        "precoIgual": true
       },
       {
-        "productNameList": "Sauce Labs Onesie",
-        "productPriceList": "$7.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Onesie",
+        "precoProdutoLista": "$7.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Onesie",
+        "precoProdutopageDetalhe": "$7.99",
+        "nomeIgual": true,
+        "precoIgual": true
       },
       {
-        "productNameList": "Test.allTheThings() T-Shirt (Red)",
-        "productPriceList": "$15.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Test.allTheThings() T-Shirt (Red)",
+        "precoProdutoLista": "$15.99",
+        "nomeProdutopageDetalhe": "Test.allTheThings() T-Shirt (Red)",
+        "precoProdutopageDetalhe": "$15.99",
+        "nomeIgual": true,
+        "precoIgual": true
       }
     ]
   },
   {
-    "username": "error_user",
+    "usuario": "error_user",
     "status": "success",
-    "message": "Login realizado com sucesso ou nenhum erro encontrado.",
-    "mostExpensiveListProduct": {
-      "name": "Sauce Labs Fleece Jacket",
-      "price": 49.99,
-      "selector": "#item_5_title_link"
+    "mensagem": "Login realizado com sucesso ou nenhum erro encontrado.",
+    "produtoMaisCaroLista": {
+      "nome": "Sauce Labs Fleece Jacket",
+      "preco": 49.99
     },
-    "mostExpensiveDetailProduct": {
-      "name": "Sauce Labs Backpack",
-      "price": 29.99
+    "produtoMaisCaroDetalhe": {
+      "nome": "Sauce Labs Fleece Jacket",
+      "preco": 49.99
     },
-    "productComparison": [
+    "comparacaoProdutos": [
       {
-        "productNameList": "Sauce Labs Backpack",
-        "productPriceList": "$29.99",
-        "productNameDetailPage": "Sauce Labs Backpack",
-        "productPriceDetailPage": "$29.99",
-        "nameMatch": true,
-        "priceMatch": true
+        "nomeProdutoLista": "Sauce Labs Backpack",
+        "precoProdutoLista": "$29.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Backpack",
+        "precoProdutopageDetalhe": "$29.99",
+        "nomeIgual": true,
+        "precoIgual": true
       },
       {
-        "productNameList": "Sauce Labs Bike Light",
-        "productPriceList": "$9.99",
-        "productNameDetailPage": "Sauce Labs Bike Light",
-        "productPriceDetailPage": "$9.99",
-        "nameMatch": true,
-        "priceMatch": true
+        "nomeProdutoLista": "Sauce Labs Bike Light",
+        "precoProdutoLista": "$9.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Bike Light",
+        "precoProdutopageDetalhe": "$9.99",
+        "nomeIgual": true,
+        "precoIgual": true
       },
       {
-        "productNameList": "Sauce Labs Bolt T-Shirt",
-        "productPriceList": "$15.99",
-        "productNameDetailPage": "Sauce Labs Bolt T-Shirt",
-        "productPriceDetailPage": "$15.99",
-        "nameMatch": true,
-        "priceMatch": true
+        "nomeProdutoLista": "Sauce Labs Bolt T-Shirt",
+        "precoProdutoLista": "$15.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Bolt T-Shirt",
+        "precoProdutopageDetalhe": "$15.99",
+        "nomeIgual": true,
+        "precoIgual": true
       },
       {
-        "productNameList": "Sauce Labs Fleece Jacket",
-        "productPriceList": "$49.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Fleece Jacket",
+        "precoProdutoLista": "$49.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Fleece Jacket",
+        "precoProdutopageDetalhe": "$49.99",
+        "nomeIgual": true,
+        "precoIgual": true
       },
       {
-        "productNameList": "Sauce Labs Onesie",
-        "productPriceList": "$7.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Onesie",
+        "precoProdutoLista": "$7.99",
+        "nomeProdutopageDetalhe": "Sauce Labs Onesie",
+        "precoProdutopageDetalhe": "$7.99",
+        "nomeIgual": true,
+        "precoIgual": true
       },
       {
-        "productNameList": "Test.allTheThings() T-Shirt (Red)",
-        "productPriceList": "$15.99",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Test.allTheThings() T-Shirt (Red)",
+        "precoProdutoLista": "$15.99",
+        "nomeProdutopageDetalhe": "Test.allTheThings() T-Shirt (Red)",
+        "precoProdutopageDetalhe": "$15.99",
+        "nomeIgual": true,
+        "precoIgual": true
       }
     ]
   },
   {
-    "username": "visual_user",
+    "usuario": "visual_user",
     "status": "success",
-    "message": "Login realizado com sucesso ou nenhum erro encontrado.",
-    "mostExpensiveListProduct": {
-      "name": "Sauce Labs Bolt T-Shirt",
-      "price": 93.04,
-      "selector": "#item_1_title_link"
+    "mensagem": "Login realizado com sucesso ou nenhum erro encontrado.",
+    "produtoMaisCaroLista": {
+      "nome": "Sauce Labs Bolt T-Shirt",
+      "preco": 87.86
     },
-    "mostExpensiveDetailProduct": null,
-    "productComparison": [
+    "produtoMaisCaroDetalhe": {
+      "nome": "Sauce Labs Fleece Jacket",
+      "preco": 49.99
+    },
+    "comparacaoProdutos": [
       {
-        "productNameList": "Sauce Labs Backpack",
-        "productPriceList": "$37.94",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Backpack",
+        "precoProdutoLista": "$62.35",
+        "nomeProdutopageDetalhe": "Sauce Labs Backpack",
+        "precoProdutopageDetalhe": "$29.99",
+        "nomeIgual": true,
+        "precoIgual": false
       },
       {
-        "productNameList": "Sauce Labs Bike Light",
-        "productPriceList": "$8.27",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Bike Light",
+        "precoProdutoLista": "$72.23",
+        "nomeProdutopageDetalhe": "Sauce Labs Bike Light",
+        "precoProdutopageDetalhe": "$9.99",
+        "nomeIgual": true,
+        "precoIgual": false
       },
       {
-        "productNameList": "Sauce Labs Bolt T-Shirt",
-        "productPriceList": "$93.04",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Bolt T-Shirt",
+        "precoProdutoLista": "$87.86",
+        "nomeProdutopageDetalhe": "Sauce Labs Bolt T-Shirt",
+        "precoProdutopageDetalhe": "$15.99",
+        "nomeIgual": true,
+        "precoIgual": false
       },
       {
-        "productNameList": "Sauce Labs Fleece Jacket",
-        "productPriceList": "$90.04",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Fleece Jacket",
+        "precoProdutoLista": "$59.46",
+        "nomeProdutopageDetalhe": "Sauce Labs Fleece Jacket",
+        "precoProdutopageDetalhe": "$49.99",
+        "nomeIgual": true,
+        "precoIgual": false
       },
       {
-        "productNameList": "Sauce Labs Onesie",
-        "productPriceList": "$80.88",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Sauce Labs Onesie",
+        "precoProdutoLista": "$67.62",
+        "nomeProdutopageDetalhe": "Sauce Labs Onesie",
+        "precoProdutopageDetalhe": "$7.99",
+        "nomeIgual": true,
+        "precoIgual": false
       },
       {
-        "productNameList": "Test.allTheThings() T-Shirt (Red)",
-        "productPriceList": "$69.07",
-        "productNameDetailPage": null,
-        "productPriceDetailPage": null,
-        "nameMatch": false,
-        "priceMatch": false,
-        "error": "Falha após 4 tentativas: Waiting for selector `.inventory_details_name` failed: Waiting failed: 1000ms exceeded"
+        "nomeProdutoLista": "Test.allTheThings() T-Shirt (Red)",
+        "precoProdutoLista": "$57.48",
+        "nomeProdutopageDetalhe": "Test.allTheThings() T-Shirt (Red)",
+        "precoProdutopageDetalhe": "$15.99",
+        "nomeIgual": true,
+        "precoIgual": false
       }
     ]
   }

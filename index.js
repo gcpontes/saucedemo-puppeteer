@@ -1,37 +1,119 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 const express = require("express");
+const { timeout } = require("puppeteer");
 const app = express();
-const PORT = 3000;
+const PORTA = 3000;
+const tempoLimite = 20000;
 
-function delay(time) {
-  return new Promise(function (resolve) {
-    setTimeout(resolve, time);
-  });
+app.get("/saucedemo", async (req, res) => {
+  let navegador;
+  const resultadosLogin = [];
+
+  try {
+    navegador = await inicializarNavegador();
+    let page = await navegador.newPage();
+
+    await navegarParaPageLogin(page);
+    console.log("Página carregada, capturando logins disponíveis...");
+
+    const logins = await obterLogins(page);
+    console.log("Logins capturados:", logins);
+
+    for (const login of logins) {
+      const resultado = await processarLogin(page, login);
+      resultadosLogin.push(resultado);
+
+      await page.close();
+      page = await navegador.newPage();
+      await navegarParaPageLogin(page);
+    }
+  } catch (erro) {
+    console.error("Erro durante o processo:", erro.message);
+    res.status(500).json({ status: "error", message: erro.message });
+  } finally {
+    if (navegador) {
+      await navegador.close();
+    }
+    salvarResultadosNoArquivo(resultadosLogin);
+    res.json({ status: "success", resultadosLogin });
+    console.log("Resultados salvos no arquivo loginResults.json");
+    console.log("Processo finalizado.");
+  }
+});
+
+async function inicializarNavegador() {
+  return await puppeteer.launch({ headless: false, slowMo: 0 });
 }
 
-async function initializeBrowser() {
-  return await puppeteer.launch({ headless: true, slowMo: 0 });
-}
-
-async function navigateToLoginPage(page) {
+async function navegarParaPageLogin(page) {
   await page.goto("https://www.saucedemo.com/", {
-    waitUntil: "networkidle2",
+    waitUntil: "domcontentloaded",
   });
 }
 
-async function getLogins(page) {
+async function obterLogins(page) {
   return await page.evaluate(() => {
-    const loginInfo = document.querySelector(".login_credentials").innerText;
-    const loginList = loginInfo
+    const infoLogin = document.querySelector(".login_credentials").innerText;
+    const listaLogins = infoLogin
       .split("\n")
       .map((login) => login.trim())
       .filter(Boolean);
-    return loginList;
+    return listaLogins;
   });
 }
 
-async function performLogin(page, login, password) {
+async function processarLogin(page, login) {
+  
+  const mensagemErro = await realizarLogin(page, login);
+
+  let statusLogin;
+  let mensagem;
+  let comparacaoFinal = [];
+  let produtoMaisCaroLista = null;
+  let produtoMaisCaroDetalhe = null;
+  
+
+  if (mensagemErro) {
+    statusLogin = "failed";
+    mensagem = mensagemErro;
+    console.log("Mensagem de erro capturada:", mensagemErro);
+  } else {
+    statusLogin = "success";
+    mensagem = "Login realizado com sucesso ou nenhum erro encontrado.";
+    console.log("Login realizado com sucesso ou nenhum erro encontrado.");
+  }
+
+  if (page.url() === "https://www.saucedemo.com/inventory.html") {
+    const listaProdutos = await obterListaProdutos(page);
+    produtoMaisCaroLista = encontrarProdutoMaisCaro(listaProdutos);
+
+    comparacaoFinal = await compararProdutos(page, listaProdutos);
+    produtoMaisCaroDetalhe = encontrarProdutoMaisCaroDetalhe(comparacaoFinal);
+
+    await realizarLogout(page, login);
+  } else {
+    const mensagemErro = await page.evaluate(() => {
+      const elementoErro = document.querySelector('[data-test="error"]');
+      return elementoErro ? elementoErro.innerText : "Nenhuma mensagem de erro";
+    });
+    console.log(
+      `Falha no login com o usuário: ${login} | Mensagem de erro: ${mensagemErro}`
+    );
+  }
+
+  return {
+    usuario: login,
+    status: statusLogin,
+    mensagem: mensagem,
+    produtoMaisCaroLista,
+    produtoMaisCaroDetalhe,
+    comparacaoProdutos: comparacaoFinal,
+  };
+}
+
+async function realizarLogin(page, login) {
+  const senha = "secret_sauce";
   console.log(`Tentando login com usuário: ${login}`);
 
   await page.evaluate(() => {
@@ -42,281 +124,168 @@ async function performLogin(page, login, password) {
   await page.evaluate(() => {
     document.querySelector("#password").value = "";
   });
-  await page.type("#password", password);
+  await page.type("#password", senha);
 
   await page.click("#login-button");
 
-  const errorMessage = await page.evaluate(() => {
-    const errorElement = document.querySelector('[data-test="error"]');
-    return errorElement ? errorElement.innerText : null;
+  const mensagemErro = await page.evaluate(() => {
+    const elementoErro = document.querySelector('[data-test="error"]');
+    return elementoErro ? elementoErro.innerText : null;
   });
 
   console.log(`Login bem-sucedido com o usuário: ${login}`);
 
-  return errorMessage;
+  return mensagemErro;
 }
 
-async function handleLogout(page, login) {
-  await page.evaluate(() => {
-    const button = document.querySelector("#react-burger-menu-btn");
-    if (button) {
-      button.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
-      button.dispatchEvent(new MouseEvent("mousedown", { bubbles: true }));
-      button.dispatchEvent(new MouseEvent("mouseup", { bubbles: true }));
-      button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-    }
-  });
-
-  await page.evaluate(() => {
-    const button = document.querySelector("#logout_sidebar_link");
-    if (button) {
-      button.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
-      button.dispatchEvent(new MouseEvent("mousedown", { bubbles: true }));
-      button.dispatchEvent(new MouseEvent("mouseup", { bubbles: true }));
-      button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-    }
+async function obterListaProdutos(page) {
+  return await page.evaluate(() => {
+    const produtos = [];
+    document.querySelectorAll(".inventory_item").forEach((produto) => {
+      const nome = produto.querySelector(".inventory_item_name").innerText;
+      const preco = produto.querySelector(".inventory_item_price").innerText;
+      const id = produto.querySelector("a").id.match(/\d+/)[0];
+      const seletor = `#item_${id}_title_link`;
+      produtos.push({ nome, preco, seletor });
+    });
+    return produtos;
   });
 }
 
-async function saveResultsToFile(results) {
-  fs.writeFileSync("loginResults.json", JSON.stringify(results, null, 2));
-}
-
-function findMostExpensiveProduct(products) {
-  return products.reduce(
-    (max, product) => {
-      const price = parseFloat(product.price.replace("$", ""));
-      return price > max.price ? { ...product, price } : max;
+function encontrarProdutoMaisCaro(produtos) {
+  return produtos.reduce(
+    (max, produto) => {
+      const preco = produto.preco
+        ? parseFloat(produto.preco.replace("$", ""))
+        : 0;
+      return preco > max.preco ? { nome: produto.nome, preco } : max;
     },
-    { price: 0 }
+    { preco: 0 }
   );
 }
 
-app.get("/sauce-demo", async (req, res) => {
-  let browser;
-  const loginResults = [];
+async function compararProdutos(page, listaProdutos) {
+  const comparacaoFinal = [];
 
-  try {
-    browser = await initializeBrowser();
-    let page = await browser.newPage();
+  for (const produto of listaProdutos) {
+    console.log(`Acessando a página do produto: ${produto.nome}`);
+    const seletor = produto.seletor;
+    let sucesso = false;
 
-    await navigateToLoginPage(page);
-    console.log("Página carregada, capturando logins disponíveis...");
+    for (let tentativa = 1; tentativa <= 4; tentativa++) {
+      try {
+        await acessarPaginaProduto(page, seletor, produto.nome);
+        const detalhesProduto = await obterDetalhesProduto(page);
+        const comparacao = criarComparacaoProduto(produto, detalhesProduto);
 
-    const logins = await getLogins(page);
-    console.log("Logins capturados:", logins);
-
-    const password = "secret_sauce";
-
-    for (const login of logins) {
-      const errorMessage = await performLogin(page, login, password);
-
-      let loginStatus;
-      let message;
-      let finalComparison = [];
-      let mostExpensiveListProduct = null;
-      let mostExpensiveDetailProduct = null;
-
-      if (errorMessage) {
-        loginStatus = "failed";
-        message = errorMessage;
-        console.log("Mensagem de erro capturada:", errorMessage);
-      } else {
-        loginStatus = "success";
-        message = "Login realizado com sucesso ou nenhum erro encontrado.";
-        console.log("Login realizado com sucesso ou nenhum erro encontrado.");
-      }
-
-      if (page.url() === "https://www.saucedemo.com/inventory.html") {
-        const productsList = await page.evaluate(() => {
-          const products = [];
-          document.querySelectorAll(".inventory_item").forEach((product) => {
-            const name = product.querySelector(
-              ".inventory_item_name"
-            ).innerText;
-            const price = product.querySelector(
-              ".inventory_item_price"
-            ).innerText;
-
-            const id = product.querySelector("a").id.match(/\d+/)[0];
-            const selector = `#item_${id}_title_link`;
-
-            products.push({ name, price, selector });
-          });
-          return products;
-        });
-
+        comparacaoFinal.push(comparacao);
         console.log(
-          "Lista de produtos obtida da página inicial:",
-          productsList
+          `Comparação do produto: ${JSON.stringify(comparacao, null, 2)}`
         );
 
-        mostExpensiveListProduct = findMostExpensiveProduct(productsList);
-
-        for (const product of productsList) {
-          console.log(`Acessando a página do produto: ${product.name}`);
-
-          const selector = product.selector;
-          let success = false;
-
-          for (let attempt = 1; attempt <= 4; attempt++) {
-            try {
-              console.log(`Tentativa ${attempt} para acessar ${product.name}`);
-
-              await page.waitForSelector(".inventory_item", { timeout: 1000 });
-              await page.waitForSelector(selector, { timeout: 1000 });
-
-              await page.click(selector);
-
-              await page.waitForSelector(".inventory_details_name", {
-                timeout: 1000,
-              });
-
-              const productDetails = await page.evaluate(() => {
-                const name = document.querySelector(
-                  ".inventory_details_name"
-                ).innerText;
-                const price = document.querySelector(
-                  ".inventory_details_price"
-                ).innerText;
-                return { name, price };
-              });
-
-              const comparison = {
-                productNameList: product.name,
-                productPriceList: product.price,
-                productNameDetailPage: productDetails.name,
-                productPriceDetailPage: productDetails.price,
-                nameMatch: product.name === productDetails.name,
-                priceMatch: product.price === productDetails.price,
-              };
-
-              finalComparison.push(comparison);
-
-              console.log(
-                `Comparação do produto: ${JSON.stringify(comparison, null, 2)}`
-              );
-
-              await page.evaluate(() => {
-                const button = document.querySelector("#back-to-products");
-                if (button) {
-                  button.dispatchEvent(
-                    new MouseEvent("mouseover", { bubbles: true })
-                  );
-                  button.dispatchEvent(
-                    new MouseEvent("mousedown", { bubbles: true })
-                  );
-                  button.dispatchEvent(
-                    new MouseEvent("mouseup", { bubbles: true })
-                  );
-                  button.dispatchEvent(
-                    new MouseEvent("click", { bubbles: true })
-                  );
-                }
-              });
-
-              await page.waitForSelector(".inventory_item", { timeout: 1000 });
-              success = true;
-
-              const currentDetailProduct = {
-                name: productDetails.name,
-                price: parseFloat(productDetails.price.replace("$", "")),
-              };
-
-              if (
-                !mostExpensiveDetailProduct ||
-                currentDetailProduct.price > mostExpensiveDetailProduct.price
-              ) {
-                mostExpensiveDetailProduct = currentDetailProduct;
-              }
-
-              break;
-            } catch (error) {
-              console.log(
-                selector,
-                `Erro na tentativa ${attempt}:`,
-                error.message
-              );
-              if (attempt === 4) {
-                console.log(
-                  `Falha ao acessar ${product.name} após 4 tentativas.`
-                );
-                finalComparison.push({
-                  productNameList: product.name,
-                  productPriceList: product.price,
-                  productNameDetailPage: null,
-                  productPriceDetailPage: null,
-                  nameMatch: false,
-                  priceMatch: false,
-                  error: `Falha após 4 tentativas: ${error.message}`,
-                });
-              }
-            }
-          }
-
-          if (
-            !success &&
-            !finalComparison.some(
-              (item) => item.productNameList === product.name
-            )
-          ) {
-            finalComparison.push({
-              productNameList: product.name,
-              productPriceList: product.price,
-              productNameDetailPage: null,
-              productPriceDetailPage: null,
-              nameMatch: false,
-              priceMatch: false,
-              error: "Falha após 4 tentativas",
-            });
-          }
+        await retornarListaProdutos(page, produto.nome);
+        sucesso = true;
+        break;
+      } catch (erro) {
+        console.log(seletor, `Erro na tentativa ${tentativa}:`, erro.message);
+        if (tentativa === 4) {
+          console.log(`Falha ao acessar ${produto.nome} após 4 tentativas.`);
+          comparacaoFinal.push(criarComparacaoFalha(produto, erro.message));
         }
-
-        console.log(
-          "Comparação final entre listagem de produtos e página de detalhes:",
-          finalComparison
-        );
-
-        await handleLogout(page, login);
-      } else {
-        const errorMessage = await page.evaluate(() => {
-          const errorElement = document.querySelector('[data-test="error"]');
-          return errorElement
-            ? errorElement.innerText
-            : "Nenhuma mensagem de erro";
-        });
-        console.log(
-          `Falha no login com o usuário: ${login} | Mensagem de erro: ${errorMessage}`
-        );
       }
-
-      loginResults.push({
-        username: login,
-        status: loginStatus,
-        message: message,
-        mostExpensiveListProduct,
-        mostExpensiveDetailProduct,
-        productComparison: finalComparison,        
-      });
-
-      await page.close();
-      page = await browser.newPage();
-      await navigateToLoginPage(page);
     }
-  } catch (error) {
-    console.error("Erro durante o processo:", error.message);
-    res.status(500).json({ status: 'error', message: error.message });
-  } finally {
-    if (browser) {
-      await browser.close();
+
+    if (
+      !sucesso &&
+      !comparacaoFinal.some((item) => item.nomeProdutoLista === produto.nome)
+    ) {
+      comparacaoFinal.push(
+        criarComparacaoFalha(produto, "Falha após 4 tentativas")
+      );
     }
-    saveResultsToFile(loginResults);
-    res.json({status: 'success', loginResults}); // Send the results as JSON response
   }
-});
 
-app.listen(PORT, () => {
+  return comparacaoFinal;
+}
+
+async function acessarPaginaProduto(page, seletor, nomeProduto) {
+  console.log(`Tentativa para acessar ${nomeProduto}`);
+  console.log("Esperando o seletor", seletor);
+  await page.waitForSelector(seletor, { timeout: tempoLimite });
+
+  if (page.isClosed()) {
+    throw new Error("Frame foi fechado");
+  }
+
+  await page.$eval(seletor, (element) => element.click());
+  console.log(`Acessando a página do produto: ${nomeProduto}`);
+  await page.waitForSelector(".inventory_details_name", {
+    timeout: tempoLimite,
+  });
+}
+
+async function obterDetalhesProduto(page) {
+  return await page.evaluate(() => {
+    const nome = document.querySelector(".inventory_details_name").innerText;
+    const preco = document.querySelector(".inventory_details_price").innerText;
+    return { nome, preco };
+  });
+}
+
+function criarComparacaoProduto(produto, detalhesProduto) {
+  return {
+    nomeProdutoLista: produto.nome,
+    precoProdutoLista: produto.preco,
+    nomeProdutopageDetalhe: detalhesProduto.nome,
+    precoProdutopageDetalhe: detalhesProduto.preco,
+    nomeIgual: produto.nome === detalhesProduto.nome,
+    precoIgual: produto.preco === detalhesProduto.preco,
+  };
+}
+
+async function retornarListaProdutos(page, nomeProduto) {
+  console.log(`Retornando à lista de produtos: ${nomeProduto}`);
+  await page.waitForSelector("#back-to-products", { timeout: tempoLimite });
+  await page.$eval("#back-to-products", (element) => element.click());
+}
+
+function criarComparacaoFalha(produto, mensagemErro) {
+  return {
+    nomeProdutoLista: produto.nome,
+    precoProdutoLista: produto.preco,
+    nomeProdutopageDetalhe: null,
+    precoProdutopageDetalhe: null,
+    nomeIgual: false,
+    precoIgual: false,
+    erro: `Falha após 4 tentativas: ${mensagemErro}`,
+  };
+}
+
+function encontrarProdutoMaisCaroDetalhe(comparacoes) {
+  return comparacoes.reduce(
+    (max, comparacao) => {
+      const preco = comparacao.precoProdutopageDetalhe
+        ? parseFloat(comparacao.precoProdutopageDetalhe.replace("$", ""))
+        : 0;
+      return preco > max.preco
+        ? { nome: comparacao.nomeProdutopageDetalhe, preco }
+        : max;
+    },
+    { preco: 0 }
+  );
+}
+
+async function realizarLogout(page, login) {
+  await page.$eval("#react-burger-menu-btn", (element) => element.click());
+  await page.$eval("#logout_sidebar_link", (element) => element.click());
+}
+
+async function salvarResultadosNoArquivo(resultados) {
+  fs.writeFileSync("loginResults.json", JSON.stringify(resultados, null, 2));
+}
+
+app.listen(PORTA, () => {
   console.log(
-    `Servidor rodando na porta ${PORT}. Acesse http://localhost:${PORT}/sauce-demo para testar.`
+    `Servidor rodando na porta ${PORTA}. Acesse http://localhost:${PORTA}/saucedemo para testar.`
   );
 });
