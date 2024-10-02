@@ -43,7 +43,7 @@ app.get("/saucedemo", async (req, res) => {
 });
 
 async function inicializarNavegador() {
-  return await puppeteer.launch({ headless: false, slowMo: 0 });
+  return await puppeteer.launch({ headless: true, slowMo: 0 });
 }
 
 async function navegarParaPageLogin(page) {

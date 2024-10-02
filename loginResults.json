@@ -272,8 +272,8 @@
     "status": "success",
     "mensagem": "Login realizado com sucesso ou nenhum erro encontrado.",
     "produtoMaisCaroLista": {
-      "nome": "Sauce Labs Bolt T-Shirt",
-      "preco": 87.86
+      "nome": "Sauce Labs Bike Light",
+      "preco": 94.79
     },
     "produtoMaisCaroDetalhe": {
       "nome": "Sauce Labs Fleece Jacket",
@@ -282,7 +282,7 @@
     "comparacaoProdutos": [
       {
         "nomeProdutoLista": "Sauce Labs Backpack",
-        "precoProdutoLista": "$62.35",
+        "precoProdutoLista": "$34.36",
         "nomeProdutopageDetalhe": "Sauce Labs Backpack",
         "precoProdutopageDetalhe": "$29.99",
         "nomeIgual": true,
@@ -290,7 +290,7 @@
       },
       {
         "nomeProdutoLista": "Sauce Labs Bike Light",
-        "precoProdutoLista": "$72.23",
+        "precoProdutoLista": "$94.79",
         "nomeProdutopageDetalhe": "Sauce Labs Bike Light",
         "precoProdutopageDetalhe": "$9.99",
         "nomeIgual": true,
@@ -298,7 +298,7 @@
       },
       {
         "nomeProdutoLista": "Sauce Labs Bolt T-Shirt",
-        "precoProdutoLista": "$87.86",
+        "precoProdutoLista": "$38.23",
         "nomeProdutopageDetalhe": "Sauce Labs Bolt T-Shirt",
         "precoProdutopageDetalhe": "$15.99",
         "nomeIgual": true,
@@ -306,7 +306,7 @@
       },
       {
         "nomeProdutoLista": "Sauce Labs Fleece Jacket",
-        "precoProdutoLista": "$59.46",
+        "precoProdutoLista": "$68.27",
         "nomeProdutopageDetalhe": "Sauce Labs Fleece Jacket",
         "precoProdutopageDetalhe": "$49.99",
         "nomeIgual": true,
@@ -314,7 +314,7 @@
       },
       {
         "nomeProdutoLista": "Sauce Labs Onesie",
-        "precoProdutoLista": "$67.62",
+        "precoProdutoLista": "$70.74",
         "nomeProdutopageDetalhe": "Sauce Labs Onesie",
         "precoProdutopageDetalhe": "$7.99",
         "nomeIgual": true,
@@ -322,7 +322,7 @@
       },
       {
         "nomeProdutoLista": "Test.allTheThings() T-Shirt (Red)",
-        "precoProdutoLista": "$57.48",
+        "precoProdutoLista": "$26.95",
         "nomeProdutopageDetalhe": "Test.allTheThings() T-Shirt (Red)",
         "precoProdutopageDetalhe": "$15.99",
         "nomeIgual": true,
